@@ -1,0 +1,14 @@
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\bin\Debug\Sacramentos.exe.config
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\bin\Debug\Sacramentos.exe
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\bin\Debug\Sacramentos.pdb
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Persona.resources
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Sacerdotes.resources
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Principal.resources
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Properties.Resources.resources
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Bautismos.resources
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.csproj.GenerateResource.Cache
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.exe
+C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.pdb
+C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.csprojResolveAssemblyReference.cache
+C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Busquedas.BuscarParroquias.resources
+C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Parroquias.resources
