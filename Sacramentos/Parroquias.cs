@@ -193,20 +193,7 @@ namespace Sacramentos
 
         private void dgv_parroquias2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int row = e.RowIndex;
-            if (row > -1)
-            {
-                string codigo = dgv_parroquias2.Rows[row].Cells[0].Value.ToString();
-                string nombre = dgv_parroquias2.Rows[row].Cells[1].Value.ToString();
-                string direccion = dgv_parroquias2.Rows[row].Cells[2].Value.ToString();
-                string telefono = dgv_parroquias2.Rows[row].Cells[3].Value.ToString();
 
-                tbx_nextpk2.Text = codigo;
-                tbx_nombre2.Text = nombre;
-                tbx_direccion2.Text = direccion;
-                tbx_tel2.Text = telefono;
-
-            }
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -236,6 +223,24 @@ namespace Sacramentos
         {
             const char Delete = (char)8;
             e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void dgv_parroquias2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row > -1)
+            {
+                string codigo = dgv_parroquias2.Rows[row].Cells[0].Value.ToString();
+                string nombre = dgv_parroquias2.Rows[row].Cells[1].Value.ToString();
+                string direccion = dgv_parroquias2.Rows[row].Cells[2].Value.ToString();
+                string telefono = dgv_parroquias2.Rows[row].Cells[3].Value.ToString();
+
+                tbx_nextpk2.Text = codigo;
+                tbx_nombre2.Text = nombre;
+                tbx_direccion2.Text = direccion;
+                tbx_tel2.Text = telefono;
+
+            }
         }
     }
 }

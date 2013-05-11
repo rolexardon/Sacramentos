@@ -75,5 +75,10 @@ namespace Sacramentos.Busquedas
             this.Dispose();
             this.Close();
         }
+
+        private void tbx_direccionbuscar_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro(1);
+        }
     }
 }

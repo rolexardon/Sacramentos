@@ -45,6 +45,8 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bd_iglesiaDataSet = new Sacramentos.bd_iglesiaDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbx_observacion = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tbx_codemadre = new System.Windows.Forms.TextBox();
             this.tbx_codepadre = new System.Windows.Forms.TextBox();
             this.tbx_codebautizado = new System.Windows.Forms.TextBox();
@@ -71,7 +73,7 @@
             this.tbx_parroquia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbx_codigo = new System.Windows.Forms.TextBox();
+            this.tbx_nextpk = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
@@ -79,6 +81,7 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.bautizosTableAdapter = new Sacramentos.bd_iglesiaDataSetTableAdapters.bautizosTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bd_iglesiaDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -216,6 +220,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbx_observacion);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.tbx_codemadre);
             this.groupBox1.Controls.Add(this.tbx_codepadre);
             this.groupBox1.Controls.Add(this.tbx_codebautizado);
@@ -242,7 +248,7 @@
             this.groupBox1.Controls.Add(this.tbx_parroquia);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbx_codigo);
+            this.groupBox1.Controls.Add(this.tbx_nextpk);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.dtp_fecha);
@@ -254,6 +260,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar";
+            // 
+            // tbx_observacion
+            // 
+            this.tbx_observacion.Location = new System.Drawing.Point(122, 412);
+            this.tbx_observacion.Name = "tbx_observacion";
+            this.tbx_observacion.Size = new System.Drawing.Size(288, 52);
+            this.tbx_observacion.TabIndex = 87;
+            this.tbx_observacion.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(19, 410);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 20);
+            this.label9.TabIndex = 86;
+            this.label9.Text = "Observación";
             // 
             // tbx_codemadre
             // 
@@ -297,12 +321,13 @@
             // 
             // btn_agregar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(498, 405);
+            this.btn_agregar.Location = new System.Drawing.Point(498, 432);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(76, 32);
             this.btn_agregar.TabIndex = 80;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // btn_eliminapadrino
             // 
@@ -323,6 +348,7 @@
             this.btn_agregapadrino.Size = new System.Drawing.Size(30, 32);
             this.btn_agregapadrino.TabIndex = 78;
             this.btn_agregapadrino.UseVisualStyleBackColor = true;
+            this.btn_agregapadrino.Click += new System.EventHandler(this.btn_agregapadrino_Click);
             // 
             // list_padrinos
             // 
@@ -351,6 +377,7 @@
             this.btn_buscarmadre.Size = new System.Drawing.Size(30, 32);
             this.btn_buscarmadre.TabIndex = 74;
             this.btn_buscarmadre.UseVisualStyleBackColor = true;
+            this.btn_buscarmadre.Click += new System.EventHandler(this.btn_buscarmadre_Click);
             // 
             // tbx_madre
             // 
@@ -379,6 +406,7 @@
             this.btn_buscarpadre.Size = new System.Drawing.Size(30, 32);
             this.btn_buscarpadre.TabIndex = 71;
             this.btn_buscarpadre.UseVisualStyleBackColor = true;
+            this.btn_buscarpadre.Click += new System.EventHandler(this.btn_buscarpadre_Click);
             // 
             // tbx_padre
             // 
@@ -407,6 +435,7 @@
             this.btn_buscarbautizado.Size = new System.Drawing.Size(30, 32);
             this.btn_buscarbautizado.TabIndex = 68;
             this.btn_buscarbautizado.UseVisualStyleBackColor = true;
+            this.btn_buscarbautizado.Click += new System.EventHandler(this.btn_buscarbautizado_Click);
             // 
             // tbx_bautizado
             // 
@@ -435,6 +464,7 @@
             this.btn_buscarsacerdote.Size = new System.Drawing.Size(30, 32);
             this.btn_buscarsacerdote.TabIndex = 65;
             this.btn_buscarsacerdote.UseVisualStyleBackColor = true;
+            this.btn_buscarsacerdote.Click += new System.EventHandler(this.btn_buscarsacerdote_Click);
             // 
             // tbx_sacerdote
             // 
@@ -493,13 +523,13 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Código";
             // 
-            // tbx_codigo
+            // tbx_nextpk
             // 
-            this.tbx_codigo.Enabled = false;
-            this.tbx_codigo.Location = new System.Drawing.Point(375, 19);
-            this.tbx_codigo.Name = "tbx_codigo";
-            this.tbx_codigo.Size = new System.Drawing.Size(120, 20);
-            this.tbx_codigo.TabIndex = 25;
+            this.tbx_nextpk.Enabled = false;
+            this.tbx_nextpk.Location = new System.Drawing.Point(375, 19);
+            this.tbx_nextpk.Name = "tbx_nextpk";
+            this.tbx_nextpk.Size = new System.Drawing.Size(120, 20);
+            this.tbx_nextpk.TabIndex = 25;
             // 
             // pictureBox1
             // 
@@ -562,6 +592,10 @@
             // 
             this.bautizosTableAdapter.ClearBeforeFill = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Bautismos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,6 +616,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,7 +629,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbx_codigo;
+        private System.Windows.Forms.TextBox tbx_nextpk;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
@@ -637,5 +672,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn padreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn madreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.RichTextBox tbx_observacion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

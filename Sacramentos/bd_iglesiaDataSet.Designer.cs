@@ -52,10 +52,6 @@ namespace Sacramentos {
         
         private global::System.Data.DataRelation relationsacerdote_baufk;
         
-        private global::System.Data.DataRelation relationbautizo_padbaufk;
-        
-        private global::System.Data.DataRelation relationpersona_padbaufk;
-        
         private global::System.Data.DataRelation relationconfima_padconffk;
         
         private global::System.Data.DataRelation relationpersona_padconffk;
@@ -63,6 +59,10 @@ namespace Sacramentos {
         private global::System.Data.DataRelation relationmatrimonio_fk;
         
         private global::System.Data.DataRelation relationpersona_fk;
+        
+        private global::System.Data.DataRelation relationpersona_padbaufk;
+        
+        private global::System.Data.DataRelation relationbautizo_padbaufk;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -413,12 +413,12 @@ namespace Sacramentos {
             this.relationpadre_baufk = this.Relations["padre_baufk"];
             this.relationparroquia_baufk = this.Relations["parroquia_baufk"];
             this.relationsacerdote_baufk = this.Relations["sacerdote_baufk"];
-            this.relationbautizo_padbaufk = this.Relations["bautizo_padbaufk"];
-            this.relationpersona_padbaufk = this.Relations["persona_padbaufk"];
             this.relationconfima_padconffk = this.Relations["confima_padconffk"];
             this.relationpersona_padconffk = this.Relations["persona_padconffk"];
             this.relationmatrimonio_fk = this.Relations["matrimonio_fk"];
             this.relationpersona_fk = this.Relations["persona_fk"];
+            this.relationpersona_padbaufk = this.Relations["persona_padbaufk"];
+            this.relationbautizo_padbaufk = this.Relations["bautizo_padbaufk"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -467,14 +467,6 @@ namespace Sacramentos {
                         this.tablesacerdotes.codigoColumn}, new global::System.Data.DataColumn[] {
                         this.tablebautizos.sacerdoteColumn}, false);
             this.Relations.Add(this.relationsacerdote_baufk);
-            this.relationbautizo_padbaufk = new global::System.Data.DataRelation("bautizo_padbaufk", new global::System.Data.DataColumn[] {
-                        this.tablebautizos.codigoColumn}, new global::System.Data.DataColumn[] {
-                        this.tablepadrinos_bautizo.codigo_bauColumn}, false);
-            this.Relations.Add(this.relationbautizo_padbaufk);
-            this.relationpersona_padbaufk = new global::System.Data.DataRelation("persona_padbaufk", new global::System.Data.DataColumn[] {
-                        this.tablepersonas.codigoColumn}, new global::System.Data.DataColumn[] {
-                        this.tablepadrinos_bautizo.codigo_perColumn}, false);
-            this.Relations.Add(this.relationpersona_padbaufk);
             this.relationconfima_padconffk = new global::System.Data.DataRelation("confima_padconffk", new global::System.Data.DataColumn[] {
                         this.tableconfirmas.codigoColumn}, new global::System.Data.DataColumn[] {
                         this.tablepadrinos_confirma.codigo_confColumn}, false);
@@ -491,6 +483,14 @@ namespace Sacramentos {
                         this.tablepersonas.codigoColumn}, new global::System.Data.DataColumn[] {
                         this.tabletestigos.codigo_perColumn}, false);
             this.Relations.Add(this.relationpersona_fk);
+            this.relationpersona_padbaufk = new global::System.Data.DataRelation("persona_padbaufk", new global::System.Data.DataColumn[] {
+                        this.tablepersonas.codigoColumn}, new global::System.Data.DataColumn[] {
+                        this.tablepadrinos_bautizo.codigo_perColumn}, false);
+            this.Relations.Add(this.relationpersona_padbaufk);
+            this.relationbautizo_padbaufk = new global::System.Data.DataRelation("bautizo_padbaufk", new global::System.Data.DataColumn[] {
+                        this.tablebautizos.codigoColumn}, new global::System.Data.DataColumn[] {
+                        this.tablepadrinos_bautizo.codigo_bauColumn}, false);
+            this.Relations.Add(this.relationbautizo_padbaufk);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3642,17 +3642,6 @@ namespace Sacramentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public padrinos_bautizoRow[] Getpadrinos_bautizoRows() {
-                if ((this.Table.ChildRelations["persona_padbaufk"] == null)) {
-                    return new padrinos_bautizoRow[0];
-                }
-                else {
-                    return ((padrinos_bautizoRow[])(base.GetChildRows(this.Table.ChildRelations["persona_padbaufk"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public padrinos_confirmaRow[] Getpadrinos_confirmaRows() {
                 if ((this.Table.ChildRelations["persona_padconffk"] == null)) {
                     return new padrinos_confirmaRow[0];
@@ -3670,6 +3659,17 @@ namespace Sacramentos {
                 }
                 else {
                     return ((testigosRow[])(base.GetChildRows(this.Table.ChildRelations["persona_fk"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public padrinos_bautizoRow[] Getpadrinos_bautizoRows() {
+                if ((this.Table.ChildRelations["persona_padbaufk"] == null)) {
+                    return new padrinos_bautizoRow[0];
+                }
+                else {
+                    return ((padrinos_bautizoRow[])(base.GetChildRows(this.Table.ChildRelations["persona_padbaufk"])));
                 }
             }
         }
@@ -4103,23 +4103,23 @@ namespace Sacramentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bautizosRow bautizosRow {
-                get {
-                    return ((bautizosRow)(this.GetParentRow(this.Table.ParentRelations["bautizo_padbaufk"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["bautizo_padbaufk"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public personasRow personasRow {
                 get {
                     return ((personasRow)(this.GetParentRow(this.Table.ParentRelations["persona_padbaufk"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["persona_padbaufk"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bautizosRow bautizosRow {
+                get {
+                    return ((bautizosRow)(this.GetParentRow(this.Table.ParentRelations["bautizo_padbaufk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["bautizo_padbaufk"]);
                 }
             }
         }
@@ -7532,12 +7532,144 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `codigo`, `fecha_bau`, `parroquia`, `sacerdote`, `bautizado`, `padre`, `ma" +
                 "dre`, `observacion` FROM `bautizos`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM `bautizos` WHERE (`codigo` = @Original_codigo)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_codigo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "codigo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO `bautizos` (`fecha_bau`, `parroquia`, `sacerdote`, `bautizado`, `padr" +
+                "e`, `madre`, `observacion`) VALUES (@fecha_bau, @parroquia, @sacerdote, @bautiza" +
+                "do, @padre, @madre, @observacion)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@fecha_bau";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "fecha_bau";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@parroquia";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "parroquia";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@sacerdote";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "sacerdote";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@bautizado";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "bautizado";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@padre";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "padre";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@madre";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "madre";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@observacion";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 200;
+            param.IsNullable = true;
+            param.SourceColumn = "observacion";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE `bautizos` SET `fecha_bau` = @fecha_bau, `parroquia` = @parroquia, `sacerd" +
+                "ote` = @sacerdote, `bautizado` = @bautizado, `padre` = @padre, `madre` = @madre," +
+                " `observacion` = @observacion WHERE (`codigo` = @Original_codigo)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@fecha_bau";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "fecha_bau";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@parroquia";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "parroquia";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@sacerdote";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "sacerdote";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@bautizado";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "bautizado";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@padre";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "padre";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@madre";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "madre";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@observacion";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 200;
+            param.IsNullable = true;
+            param.SourceColumn = "observacion";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_codigo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "codigo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7756,6 +7888,121 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int Original_codigo) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Original_codigo));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(System.DateTime fecha_bau, int parroquia, int sacerdote, int bautizado, global::System.Nullable<int> padre, global::System.Nullable<int> madre, string observacion) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((System.DateTime)(fecha_bau));
+            command.Parameters[1].Value = ((int)(parroquia));
+            command.Parameters[2].Value = ((int)(sacerdote));
+            command.Parameters[3].Value = ((int)(bautizado));
+            if ((padre.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(padre.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((madre.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(madre.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((observacion == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(observacion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(System.DateTime fecha_bau, int parroquia, int sacerdote, int bautizado, global::System.Nullable<int> padre, global::System.Nullable<int> madre, string observacion, int Original_codigo) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
+            command.Parameters[0].Value = ((System.DateTime)(fecha_bau));
+            command.Parameters[1].Value = ((int)(parroquia));
+            command.Parameters[2].Value = ((int)(sacerdote));
+            command.Parameters[3].Value = ((int)(bautizado));
+            if ((padre.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(padre.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((madre.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(madre.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((observacion == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(observacion));
+            }
+            command.Parameters[7].Value = ((int)(Original_codigo));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -7988,11 +8235,42 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `codigo`, `codigo_bau`, `codigo_per` FROM `padrinos_bautizo`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "DELETE FROM `padrinos_bautizo` WHERE (`codigo` = @Original_codigo)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_codigo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "codigo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO `padrinos_bautizo` (`codigo_bau`, `codigo_per`) VALUES (@codigo_bau, " +
+                "@codigo_per)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@codigo_bau";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "codigo_bau";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@codigo_per";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "codigo_per";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8119,6 +8397,55 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int Original_codigo) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Original_codigo));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(int codigo_bau, int codigo_per) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(codigo_bau));
+            command.Parameters[1].Value = ((int)(codigo_per));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -9874,21 +10201,21 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._testigosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.testigos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._testigosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._padrinos_bautizoTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.padrinos_bautizo.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._padrinos_bautizoTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._testigosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.testigos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._testigosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9959,19 +10286,19 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._testigosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.testigos.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._testigosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._padrinos_bautizoTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.padrinos_bautizo.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._padrinos_bautizoTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._testigosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.testigos.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._testigosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10001,19 +10328,19 @@ namespace Sacramentos.bd_iglesiaDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._padrinos_bautizoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.padrinos_bautizo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._padrinos_bautizoTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._testigosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.testigos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._testigosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._padrinos_bautizoTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.padrinos_bautizo.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._padrinos_bautizoTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

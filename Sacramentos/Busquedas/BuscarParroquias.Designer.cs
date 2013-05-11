@@ -43,7 +43,6 @@
             this.tbx_direccionbuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbx_nombrebuscar = new System.Windows.Forms.TextBox();
-            this.btn_salir = new System.Windows.Forms.Button();
             this.parroquiasTableAdapter = new Sacramentos.bd_iglesiaDataSetTableAdapters.parroquiasTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_parroquias)).BeginInit();
@@ -60,7 +59,6 @@
             this.groupBox1.Controls.Add(this.tbx_direccionbuscar);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbx_nombrebuscar);
-            this.groupBox1.Controls.Add(this.btn_salir);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -75,9 +73,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 13);
+            this.label1.Size = new System.Drawing.Size(235, 13);
             this.label1.TabIndex = 65;
-            this.label1.Text = "doble clic para ver seleccionar la parroquia deseada";
+            this.label1.Text = "doble clic para seleccionar la parroquia deseada";
             // 
             // dgv_parroquias
             // 
@@ -157,6 +155,7 @@
             this.tbx_direccionbuscar.Name = "tbx_direccionbuscar";
             this.tbx_direccionbuscar.Size = new System.Drawing.Size(377, 20);
             this.tbx_direccionbuscar.TabIndex = 62;
+            this.tbx_direccionbuscar.TextChanged += new System.EventHandler(this.tbx_direccionbuscar_TextChanged);
             // 
             // label4
             // 
@@ -176,18 +175,6 @@
             this.tbx_nombrebuscar.TabIndex = 60;
             this.tbx_nombrebuscar.TextChanged += new System.EventHandler(this.tbx_nombrebuscar_TextChanged);
             // 
-            // btn_salir
-            // 
-            this.btn_salir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_salir.BackgroundImage")));
-            this.btn_salir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_salir.Location = new System.Drawing.Point(608, 12);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(38, 35);
-            this.btn_salir.TabIndex = 0;
-            this.btn_salir.Text = "}";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
-            // 
             // parroquiasTableAdapter
             // 
             this.parroquiasTableAdapter.ClearBeforeFill = true;
@@ -199,7 +186,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(652, 417);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BuscarParroquias";
             this.Text = "BuscarParroquias";
             this.Load += new System.EventHandler(this.BuscarParroquias_Load);
@@ -215,7 +203,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_parroquias;
         private System.Windows.Forms.Label label5;

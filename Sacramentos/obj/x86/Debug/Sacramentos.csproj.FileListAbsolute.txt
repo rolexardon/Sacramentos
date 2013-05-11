@@ -12,3 +12,5 @@ C:\Users\Rolando\Documents\Visual Studio 2010\Projects\Sacramentos\Sacramentos\o
 C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.csprojResolveAssemblyReference.cache
 C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Busquedas.BuscarParroquias.resources
 C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Parroquias.resources
+C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Busquedas.BuscarSacerdote.resources
+C:\Users\Rolando\documents\visual studio 2010\Projects\Sacramentos\Sacramentos\obj\x86\Debug\Sacramentos.Busquedas.BuscarPersonas.resources

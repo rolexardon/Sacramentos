@@ -82,6 +82,18 @@
     <Compile Include="Busquedas\BuscarParroquias.Designer.cs">
       <DependentUpon>BuscarParroquias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Busquedas\BuscarPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busquedas\BuscarPersonas.Designer.cs">
+      <DependentUpon>BuscarPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Busquedas\BuscarSacerdote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Busquedas\BuscarSacerdote.Designer.cs">
+      <DependentUpon>BuscarSacerdote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parroquias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,12 @@
     </Compile>
     <EmbeddedResource Include="Busquedas\BuscarParroquias.resx">
       <DependentUpon>BuscarParroquias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busquedas\BuscarPersonas.resx">
+      <DependentUpon>BuscarPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Busquedas\BuscarSacerdote.resx">
+      <DependentUpon>BuscarSacerdote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parroquias.resx">
       <DependentUpon>Parroquias.cs</DependentUpon>

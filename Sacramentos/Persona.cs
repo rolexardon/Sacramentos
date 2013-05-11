@@ -56,17 +56,33 @@ namespace Sacramentos
                         ret=false;
                         errorProvider1.SetError(tbx_id,"Ingrese la identidad");
                     }
+                    else
+                    {
+                        errorProvider1.SetError(tbx_id, "");
+                    }
                     if(tbx_nombre.Text.Equals("")){
                         ret=false;
                         errorProvider1.SetError(tbx_nombre,"Ingrese el nombre");
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(tbx_nombre, "");
                     }
                     if(tbx_lugarnac.Text.Equals("")){
                         ret=false;
                         errorProvider1.SetError(tbx_lugarnac,"Ingrese el lugar de nacimiento");
                     }
+                    else
+                    {
+                        errorProvider1.SetError(tbx_lugarnac, "");
+                    }
                     if(tbx_tel.Text.Equals("")){
                         ret=false;
                         errorProvider1.SetError(tbx_tel,"Ingrese un contacto telefónico");
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(tbx_tel, "");
                     }
                     if (!tbx_correo.Text.Equals(""))
                     {
@@ -74,6 +90,10 @@ namespace Sacramentos
                         {
                             ret = false;
                             errorProvider1.SetError(tbx_correo, "Ingrese formato de correo correcto");
+                        }
+                        else
+                        {
+                            errorProvider1.SetError(tbx_correo, "");
                         }
                     }
                 
@@ -85,20 +105,38 @@ namespace Sacramentos
                             ret = false;
                             errorProvider1.SetError(tbx_id2, "Ingrese la identidad");
                         }
+                        else
+                        {
+                            errorProvider1.SetError(tbx_id2, "");
+                        }
+
                         if (tbx_nombre2.Text.Equals(""))
                         {
                             ret = false;
                             errorProvider1.SetError(tbx_nombre2, "Ingrese el nombre");
                         }
+                        else
+                        {
+                            errorProvider1.SetError(tbx_nombre2, "");
+                        }
+                        
                         if (tbx_lugarnac2.Text.Equals(""))
                         {
                             ret = false;
                             errorProvider1.SetError(tbx_lugarnac2, "Ingrese el lugar de nacimiento");
                         }
+                        else
+                        {
+                            errorProvider1.SetError(tbx_lugarnac2, "");
+                        }
                         if (tbx_tel2.Text.Equals(""))
                         {
                             ret = false;
                             errorProvider1.SetError(tbx_tel2, "Ingrese un contacto telefónico");
+                        }
+                         else
+                        {
+                            errorProvider1.SetError(tbx_tel2, "");
                         }
                         if (!tbx_correo2.Text.Equals(""))
                         {
@@ -106,6 +144,11 @@ namespace Sacramentos
                             {
                                 ret = false;
                                 errorProvider1.SetError(tbx_correo2, "Ingrese formato de correo correcto");
+                            }
+
+                            else
+                            {
+                                errorProvider1.SetError(tbx_correo2, "");
                             }
                         }
 
