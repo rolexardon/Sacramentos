@@ -12,5 +12,5 @@ Visual Studio
 
 ## Usage
 1. Install Visual Studio
-2. Import the prpject
+2. Import the project
 3. Clean, build and run the application
